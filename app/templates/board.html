@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="post_box">
+	<form action="" method="post" name="new_post">
+		<div class="form-group">
+			<label for="title">Title</label>
+			<input type="text" class="form-control" id="title_input" placeholder="Enter title...">
+		</div>
+		<div class="form-group">
+			<label for="body_input">Body</label>
+			<textarea type="textarea" class="form-control" id="title_input" placeholder="Think of something creative..."></textarea>
+		</div>
+		<input class="btn btn-default pull-right" type="submit" value="Submit">
+	</form>
+</div>
+	{% for post in posts %}
+	<hr>
+		<div class="post">
+			Title: {{ post.title }}<br>
+			Body: {{ post.body }}
+		</div>
+	{% endfor %}
+{% endblock %}
