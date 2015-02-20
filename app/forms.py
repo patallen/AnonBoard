@@ -1,7 +1,7 @@
-from wtforms import Form, TextField, TextAreaField, validators
+from wtforms import TextField, TextAreaField
+from wtforms.validators import DataRequired, Length
+from flask.ext.wtf import Form
 
 class PostForm(Form):
-	title = TextField('Title', [validators.Required(),
-				validators.Length(min=3, max=80)])
-	body = TextAreaField('Body', [validators.Required(),
-				validators.Length(min=20, max=1024)])
+	title = TextField('Title', [DataRequired(), Length(min=3, max=80)]) 
+	body = TextAreaField('Body', [DataRequired(), Length(min=10, max=1024)])
