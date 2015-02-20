@@ -10,6 +10,11 @@
 				<div class="navbar-header">
 					<a class="navbar-brand" href="/">AnonBoard</a>
 				</div>
+				<div class="board_nav">
+					{% for board in boards %}
+					<a href="/{{ board.name }}">/{{ board.name }}/</a>
+					{% endfor %}
+				</div>
 			</div>
 		</nav>
 		<div class="container">
