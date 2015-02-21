@@ -14,11 +14,21 @@
 	<input class="btn btn-default pull-right" type="submit" value="Submit">
 </form>
 </div>
-	{% for post in posts %}
+	{% for post in board.get_page() %}
 	<hr>
 		<div class="post">
 			Title: {{ post.title }}<br>
 			Body: {{ post.body }}
+			Board: {{ post.board }}
 		</div>
 	{% endfor %}
+	<div class="pagination">
+		{% for page in board.paginate() %}
+			{% if page == 0 %}
+				<a href="/{{ board.board_id }}">{{ page }}</a>
+			{% else  %}
+				<a href="/{{ board.board_id }}/{{ page }}">{{ page }}</a>
+			{% endif %}
+		{% endfor %}
+	</div>
 {% endblock %}
